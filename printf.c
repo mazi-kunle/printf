@@ -8,12 +8,14 @@
 int _printf(const char *format, ...)
 {
 	int count, temp, count2;
+	int result;
 	va_list arglist;
 	char *s;
 
 	va_start(arglist, format);
 	count = 0;
 	count2 = 0;
+	result = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -28,7 +30,7 @@ int _printf(const char *format, ...)
 				case 's':
 					s = va_arg(arglist, char *);
 					print_str(s);
-					temp = count_tr(s);
+					temp = count_str(s);
 					count = count + temp;
 					break;
 			}
@@ -41,5 +43,6 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(arglist);
+	result = count + count2;
 	return (count + count2);
 }
