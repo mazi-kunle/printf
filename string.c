@@ -35,3 +35,35 @@ int count_str(char *s)
 	}
 	return (count);
 }
+
+/**
+ * print_s_custom- a string custom function.
+ * @s: string.
+ * Return: string count.
+*/
+
+int print_s_custom(char *s)
+{
+	int count, i;
+
+	count = 0;
+	for (i = 0; s[i]; i++)
+	{
+		if ((s[i] < 0 || s[i] < 32 || s[i] >= 127))
+		{
+			_putchar('\\');
+			count++;
+			_putchar('x');
+			count++;
+			_putchar(0 + '0');
+			count++;
+			print_base(s[i], 16, 0, &count);
+		}
+		else
+		{
+			_putchar(s[i]);
+			count++;
+		}
+	}
+	return (count);
+}
