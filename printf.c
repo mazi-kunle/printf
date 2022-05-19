@@ -7,7 +7,7 @@
 
 int _printf(const char *format, ...)
 {
-	int count, temp, count2;
+	int count, temp, count2, d;
 	int result;
 	va_list arglist;
 	char *s;
@@ -31,6 +31,18 @@ int _printf(const char *format, ...)
 					s = va_arg(arglist, char *);
 					print_str(s);
 					temp = count_str(s);
+					count = count + temp;
+					break;
+				case 'd':
+					s = va_arg(arglist, char *);
+					print_dig(d);
+					temp = count_int(d);
+					count = count + temp;
+					break;
+				case 'i':
+					d = va_arg(arglist, int);
+					print_dig(d);
+					temp = count_int(d);
 					count = count + temp;
 					break;
 			}
