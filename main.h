@@ -12,6 +12,6 @@ void print_dig(int n);
 int count_int(int digit);
 int print_bin(unsigned int n);
 void print_unsined(unsigned int a, int *count);
-void print_base(int num, int base, int det, int *count);
+void print_base(unsigned int num, int base, int det, int *count);
 int print_s_custom(char *s);
 #endif

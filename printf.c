@@ -57,17 +57,17 @@ int _printf(const char *format, ...)
 					count = count + ptr;
 					break;
 				case 'o':
-					d = va_arg(arglist, int);
+					d = va_arg(arglist,unsigned int);
 					print_base(d, 8, 2, &ptr);
 					count = count + ptr;
 					break;
 				case 'x':
-					d = va_arg(arglist, int);
+					d = va_arg(arglist, unsigned int);
 					print_base(d, 16, 1, &ptr);
 					count = count + ptr;
 					break;
 				case 'X':
-					d = va_arg(arglist, int);
+					d = va_arg(arglist, unsigned int);
 					print_base(d, 16, 0, &ptr);
 					count = count + ptr;
 					break;

@@ -8,7 +8,7 @@
  * @count: a tracker for the number printed.
 */
 
-void print_base(int num, int base, int det, int *count)
+void print_base(unsigned int num, int base, int det, int *count)
 {
 	int rem;
 
