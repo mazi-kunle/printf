@@ -44,5 +44,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(arglist);
 	result = count + count2;
-	return (count + count2);
+	return (result);
 }
