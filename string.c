@@ -10,10 +10,9 @@ void print_str(char *s)
 	{
 		s = "(null)";
 	}
-	while (*s)
+	for (i = 0; s[i] != 0; i++)
 	{
-		_putchar(*s);
-		s++;
+		_putchar(s[i]);
 	}
 }
 
