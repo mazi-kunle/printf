@@ -14,4 +14,18 @@ int print_bin(unsigned int n);
 void print_unsined(unsigned int a, int *count);
 void print_base(unsigned int num, int base, int det, int *count);
 int print_s_custom(char *s);
+int print_char(va_list c);
+
+/**
+ * struct code_format - structure format
+ * @sc: specifier
+ * @f: function associated
+ */
+
+typedef struct code_format
+{
+	char *sc;
+	int (*f)(va_list);
+	code_f;
+}
 #endif

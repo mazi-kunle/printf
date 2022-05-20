@@ -12,12 +12,12 @@
 int (*find_correct_func(const char *format))(va_list)
 {
 	unsigned int i = 0;
-	
+
 	code_f find_f[] = {
 	{"c", print_char},
 	{"s", print_string},
 	{"i", print_int},
-	{"d", print_dec},
+	{"d", print_int},
 	{"r", print_rev},
 	{"b", print_bin},
 	{"u", print_unsigned},
@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 	va_list list;
 	int (*f)(va_list);
 	unsigned int i = 0, len = 0;
-	
+
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
