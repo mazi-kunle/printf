@@ -6,6 +6,8 @@
 
 void print_str(char *s)
 {
+	int i;
+
 	if (s == NULL)
 	{
 		s = "(null)";
