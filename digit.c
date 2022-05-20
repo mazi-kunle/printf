@@ -43,32 +43,6 @@ int count_int(int n)
 }
 
 /**
- * print_bin- a function that converts an integer to binary and prints it.
- * @n: integer to be converted.
- * Return: the number of characters.
-*/
-
-int print_bin(unsigned int n)
-{
-	long bin;
-	int rem, i;
-	int count;
-
-	i = 1;
-	count = 0;
-	while (n != 0)
-	{
-		rem = n % 2;
-		n = n / 2;
-		bin = bin + (rem * i);
-		count++;
-		i = i * 10;
-	}
-	print_dig(bin);
-	return (count);
-}
-
-/**
  * print_unsined- a function that prints an integer in its hex format.
  * @n: integer to be printed.
  * @count: a tracker for the number of characters printed.
@@ -84,3 +58,5 @@ void print_unsined(unsigned int n, int *count)
 	}
 	_putchar(n % 10 + '0');
 }
+
+

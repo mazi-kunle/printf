@@ -4,18 +4,25 @@
 #include <stddef.h>
 #include <unistd.h>
 
-int _putchar(char s);
 int _printf(const char *format, ...);
-void print_str(char *s);
-int count_str(char *s);
-void print_dig(int n);
-int count_int(int digit);
-int print_bin(unsigned int n);
-void print_unsined(unsigned int a, int *count);
-int print_rev(va_list r);
+int print_char(va_list);
+int print_string(va_list);
+int print_int(va_list);
+int print_unsigned(va_list);
+int print_bin(va_list);
+int print_S(va_list);
+int print_rev(va_list);
+int print_octal(va_list);
+int print_hex(va_list);
+int print_HEX(va_list);
+
+/*helper functions*/
 void print_base(unsigned int num, int base, int det, int *count);
-int print_s_custom(char *s);
-int print_char(va_list c);
+void print_dig(int n);
+int _putchar(char c);
+int count_int(int digit);
+void print_unsined(unsigned int n, int *count);
+void print_str(char *s);
 
 /**
  * struct code_format - structure format
@@ -25,8 +32,8 @@ int print_char(va_list c);
 
 typedef struct code_format
 {
-	char *sc;
+	char sc;
 	int (*f)(va_list);
-	code_f;
-}
+} code_f;
+
 #endif
