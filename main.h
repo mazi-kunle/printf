@@ -12,6 +12,7 @@ void print_dig(int n);
 int count_int(int digit);
 int print_bin(unsigned int n);
 void print_unsined(unsigned int a, int *count);
+int print_rev(va_list r);
 void print_base(unsigned int num, int base, int det, int *count);
 int print_s_custom(char *s);
 int print_char(va_list c);
