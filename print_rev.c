@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #include "main.h"
 
 /**
@@ -11,18 +9,31 @@
 
 int print_rev(va_list r)
 {
-	char *st;
-	int i = 0, j = 0;
+	char *st, *start, *end, temp; 
+	int i, count;
 
 	st = va_arg(r, char *);
+	end = st;
+	start  = st;
+	i = 0;
+	count = 0;
 	if (st == NULL)
-		st = ")llun(";
-	while (st[i] != '\0')
-		i++;
-	for (i -= 1; i >= 0; i--)
+		st = "(null)";
+	while (*end)
 	{
-		_putchar(st[i]);
-		j++;
+		count++;
+		end++;
 	}
-	return (j);
+	end--;
+	while (i < count / 2)
+	{
+		temp = *start;
+		*start = *end;
+		*end = temp;
+		start++;
+		end--;
+		i++;
+	}
+	print_str(st);
+	return (count);
 }

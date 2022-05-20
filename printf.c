@@ -28,6 +28,10 @@ int _printf(const char *format, ...)
 					_putchar(va_arg(arglist, int));
 					count = count + 1;
 					break;
+				case '%':
+					_putchar('%');
+					count = count + 1;
+					break;
 				case 's':
 					s = va_arg(arglist, char *);
 					print_str(s);
@@ -57,7 +61,7 @@ int _printf(const char *format, ...)
 					count = count + ptr;
 					break;
 				case 'o':
-					d = va_arg(arglist,unsigned int);
+					d = va_arg(arglist, unsigned int);
 					print_base(d, 8, 2, &ptr);
 					count = count + ptr;
 					break;
