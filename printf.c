@@ -7,7 +7,7 @@
 
 int _printf(const char *format, ...)
 {
-	int count, i;
+	int count, i, temp;
 	va_list arg;
 	code_f func_list[] = {
 		{'c', print_char},
@@ -25,6 +25,7 @@ int _printf(const char *format, ...)
 	};
 
 	va_start(arg, format);
+	temp = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -35,7 +36,8 @@ int _printf(const char *format, ...)
 			{
 				if (*format == func_list[i].sc)
 				{
-					count = func_list[i].f(&arg);
+					temp = func_list[i].f(&arg);
+					count = count + temp;
 				}
 				i++;
 			}
