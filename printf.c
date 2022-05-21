@@ -24,18 +24,18 @@ int _printf(const char *format, ...)
 		{'\0', '\0'}
 	};
 
-	i = 0;
 	va_start(arg, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
+			i = 0;
 			format++;
 			while (func_list[i].sc != '\0')
 			{
 				if (*format == func_list[i].sc)
 				{
-					count = func_list[i].f(arg);
+					count = func_list[i].f(&arg);
 				}
 				i++;
 			}

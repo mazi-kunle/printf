@@ -4,11 +4,11 @@
  * @arg: parameter.
  * Return: count.
 */
-int print_char(va_list arg)
+int print_char(va_list *arg)
 {
 	char a;
 
-	a = va_arg(arg, int);
+	a = va_arg(*arg, int);
 	_putchar(a);
 	return (1);
 }
@@ -18,12 +18,12 @@ int print_char(va_list arg)
  * @arg: parameter.
  * Return: count.
 */
-int print_string(va_list arg)
+int print_string(va_list *arg)
 {
 	char *s;
 	int count;
 
-	s = va_arg(arg, char *);
+	s = va_arg(*arg, char *);
 	count = 0;
 	if (s == NULL)
 	{
@@ -44,11 +44,11 @@ int print_string(va_list arg)
  * Return: count.
 */
 
-int print_int(va_list arg)
+int print_int(va_list *arg)
 {
 	int n, count;
 
-	n = va_arg(arg, int);
+	n = va_arg(*arg, int);
 	count = count_int(n);
 	print_dig(n);
 	return (count);
@@ -60,12 +60,12 @@ int print_int(va_list arg)
  * Return: count.
 */
 
-int print_unsigned(va_list arg)
+int print_unsigned(va_list *arg)
 {
 	unsigned int d;
 	int count;
 
-	d = va_arg(arg, unsigned int);
+	d = va_arg(*arg, unsigned int);
 	count = 0;
 	print_unsined(d, &count);
 	return (count);
@@ -76,13 +76,13 @@ int print_unsigned(va_list arg)
  * Return: count.
 */
 
-int print_bin(va_list arg)
+int print_bin(va_list *arg)
 {
 	unsigned int n;
 	unsigned long bin;
 	int rem, i, count;
 
-	n = va_arg(arg, unsigned int);
+	n = va_arg(*arg, unsigned int);
 	bin = 0;
 	i = 1;
 	count = 0;

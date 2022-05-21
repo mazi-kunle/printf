@@ -5,12 +5,12 @@
  * Return: count.
 */
 
-int print_S(va_list arg)
+int print_S(va_list *arg)
 {
 	char *s;
 	int count, i;
 
-	s = va_arg(arg, char *);
+	s = va_arg(*arg, char *);
 	count = 0;
 	for (i = 0; s[i]; i++)
 	{
@@ -39,12 +39,12 @@ int print_S(va_list arg)
  * Return: count.
 */
 
-int print_rev(va_list arg)
+int print_rev(va_list *arg)
 {
 	char *temp, *end;
 	int i, count;
 
-	temp = va_arg(arg, char *);
+	temp = va_arg(*arg, char *);
 	end = temp;
 	count = 0;
 	while (*end)
@@ -68,12 +68,12 @@ int print_rev(va_list arg)
  * @arg: parameer.
  * Return: count.
 */
-int print_octal(va_list arg)
+int print_octal(va_list *arg)
 {
 	unsigned int d;
 	int count;
 
-	d = va_arg(arg, unsigned int);
+	d = va_arg(*arg, unsigned int);
 	count = 0;
 	print_base(d, 8, 2, &count);
 	return (count);
@@ -85,12 +85,12 @@ int print_octal(va_list arg)
  * Return: count.
 */
 
-int print_hex(va_list arg)
+int print_hex(va_list *arg)
 {
 	unsigned int d;
 	int count;
 
-	d = va_arg(arg, unsigned int);
+	d = va_arg(*arg, unsigned int);
 	count = 0;
 	print_base(d, 16, 1, &count);
 	return (count);
@@ -102,12 +102,12 @@ int print_hex(va_list arg)
  * Return: int.
 */
 
-int print_HEX(va_list arg)
+int print_HEX(va_list *arg)
 {
 	unsigned int d;
 	int count;
 
-	d = va_arg(arg, unsigned int);
+	d = va_arg(*arg, unsigned int);
 	count = 0;
 	print_base(d, 16, 0, &count);
 	return (count);
