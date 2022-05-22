@@ -13,7 +13,7 @@ int print_S(va_list *arg)
 {
 	int count, i;
 	char *s;
-       
+
 	s = va_arg(*arg, char *);
 
 	for (i = 0; s[i]; i++)
