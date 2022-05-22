@@ -8,7 +8,8 @@
  * Return: int.
 */
 
-void printf_helper(const char *format, code_f func_list[], int *count, va_list *arg)
+void printf_helper(const char *format, code_f func_list[], int *count,
+		va_list *arg)
 {
 	int i, temp;
 
