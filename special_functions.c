@@ -14,7 +14,7 @@ int print_S(va_list *arg)
 	int count = 0, i = 0;
 	char *str = va_arg(*arg, char *);
 	char c;
-	
+
 	if (str == NULL || *str == '\0')
 		return (0);
 	while (str[i])
@@ -45,7 +45,7 @@ int print_octal(va_list *arg)
 {
 	unsigned int len, pow, j, digit, n, num;
 	int count = 0;
-	
+
 	n = va_arg(*arg, unsigned int);
 	if (n != 0)
 	{
@@ -75,7 +75,7 @@ int print_octal(va_list *arg)
 	}
 	return (count);
 }
-	
+
 /**
 * print_HEXnhex - a function
 * @n: unsigned int to print
@@ -90,7 +90,7 @@ int print_HEXnhex(unsigned int n, unsigned int c)
 	unsigned int i, m, sum;
 	char diff;
 	int count;
-	
+
 	m = 268435456;
 	if (c)
 		diff = 'A' - ':';
@@ -119,24 +119,22 @@ int print_HEXnhex(unsigned int n, unsigned int c)
 
 /**
  * print_hex- a function.
- * @arg: parameter.
+ * @x: parameter.
  * Return: count.
 */
 
 int print_hex(va_list x)
 {
 	return (print_HEXnhex(va_arg(x, unsigned int), 0));
-	
 }
 
 /**
  * print_HEX- a function.
- * @arg: paramter.
+ * @X: paramter.
  * Return: int.
 */
 
 int print_HEX(va_list X)
 {
 	return (print_HEXnhex(va_arg(X, unsigned int), 1));
-	
 }

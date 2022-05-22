@@ -1,4 +1,38 @@
 #include "main.h"
+
+/**
+ * find_correct_func - finding the format for _printf
+ * @format: format
+ * Return: NULL
+ */
+
+int (*find_correct_func(const char *format))(va_list)
+{
+	unsigned int i = 0;
+	code_f find_f[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"i", print_int},
+		{"d", print_dec},
+		{"r", print_rev},
+		{"b", print_bin},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_HEX},
+		{"R", print_rot13},
+		{"S", print_S},
+		{"p", print_p},
+		{NULL, NULL}
+	};
+	while (find_f[i].sc)
+	{
+		if (find_f[i].sc[0] == (*format))
+			return (find_f[i].f);
+		i++;
+	}
+	return (NULL);
+}
 /**
  * _printf- a function that produces output according to a format.
  * @format: parameter.
@@ -7,48 +41,39 @@
 
 int _printf(const char *format, ...)
 {
-	int count, i, temp;
-	va_list arg;
-	code_f func_list[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'i', print_int},
-		{'d', print_int},
-		{'r', print_rev},
-		{'b', print_bin},
-		{'u', print_unsigned},
-		{'o', print_octal},
-		{'x', print_hex},
-		{'X', print_HEX},
-		{'S', print_S},
-		{'\0', '\0'}
-	};
+	va_list list;
+	int (*f)(va_list);
+	unsigned int i = 0, len = 0;
 
-	va_start(arg, format);
-	temp = 0;
-	while (*format)
+	if (format == NULL)
+		return (-1);
+	va_start(list, format);
+	while (format[i])
 	{
-		if (*format == '%')
+		while (format[i] != '%' && format[i])
 		{
-			i = 0;
-			format++;
-			while (func_list[i].sc != '\0')
-			{
-				if (*format == func_list[i].sc)
-				{
-					temp = func_list[i].f(&arg);
-					count = count + temp;
-				}
-				i++;
-			}
+			_putchar(format[i]);
+			len++;
+			i++;
 		}
+		if (format[i] == '\0')
+			return (len);
+		f = find_correct_func(&format[i + 1]);
+		if (f != NULL)
+		{
+			len += f(list);
+			i += 2;
+			continue;
+		}
+		if (!format[i + 1])
+			return (-1);
+		_putchar(format[i]);
+		len++;
+		if (format[i + 1] == '%')
+			i += 2;
 		else
-		{
-			_putchar(*format);
-			count++;
-		}
-		format++;
+			i++;
 	}
-	va_end(arg);
-	return (count);
+	va_end(list);
+	return (len);
 }
