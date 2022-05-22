@@ -11,18 +11,29 @@
 
 int print_S(va_list *arg)
 {
-	char *s;
-	int i = 0;
-
-	s = va_arg(*arg, char *);
-	if (s == NULL)
-		s = "(null)";
-	while (s[i])
+	int count = 0, i = 0;
+	char *str = va_arg(*arg, char *);
+	char c;
+	
+	if (str == NULL || *str == '\0')
+		return (0);
+	while (str[i])
 	{
-		_putchar(s[i]);
+		c = str[i];
+		if ((c > 0 && c < 32) || c >= 127)
+		{
+			count += _putchar('\\');
+			count += _putchar('x');
+			count += _putchar('0');
+			count += _printf("%X", (unsigned int) c);
+		}
+		else
+		{
+			count += _putchar(c);
+		}
 		i++;
 	}
-	return (i);
+	return (count);
 	/*
 	for (i = 0; s[i]; i++)
 	{
@@ -42,8 +53,7 @@ int print_S(va_list *arg)
 			count++;
 		}
 	}
-	return (count); 
-	*/
+	return (count); */
 }
 
 /**
@@ -123,6 +133,46 @@ int print_octal(va_list *arg)
 	return (count);*/
 }
 	
+/**
+* print_HEXnhex - a function
+* @n: unsigned int to print
+* @c: flag to determine case of printing (0 = lower, 1 = upper)
+*
+* Return: number of digits printed
+*/
+
+int print_HEXnhex(unsigned int n, unsigned int c)
+{
+	unsigned int a[8];
+	unsigned int i, m, sum;
+	char diff;
+	int count;
+	
+	m = 268435456;
+	if (c)
+		diff = 'A' - ':';
+	else
+		diff = 'a' - ':';
+	a[0] = n / m;
+	for (i = 1; i < 8; i++)
+	{
+		m /= 16;
+		a[i] = (n / m) % 16;
+	}
+	for (i = 0, sum = 0, count = 0; i < 8; i++)
+	{
+		sum += a[i];
+		if (sum || i == 7)
+		{
+			if (a[i] < 10)
+				_putchar('0' + a[i]);
+			else
+				_putchar('0' + diff + a[i]);
+			count++;
+		}
+	}
+	return (count);
+}
 
 /**
  * print_hex- a function.
@@ -130,15 +180,17 @@ int print_octal(va_list *arg)
  * Return: count.
 */
 
-int print_hex(va_list *arg)
+int print_hex(va_list x)
 {
+	return (print_HEXnhex(va_arg(x, unsigned int), 0));
+	/*
 	unsigned int d;
 	int count;
 
 	d = va_arg(*arg, unsigned int);
 	count = 0;
 	print_base(d, 16, 1, &count);
-	return (count);
+	return (count); */
 }
 
 /**
@@ -147,13 +199,15 @@ int print_hex(va_list *arg)
  * Return: int.
 */
 
-int print_HEX(va_list *arg)
+int print_HEX(va_list X)
 {
+	return (print_HEXnhex(va_arg(X, unsigned int), 1));
+	/*
 	unsigned int d;
 	int count;
 
 	d = va_arg(*arg, unsigned int);
 	count = 0;
 	print_base(d, 16, 0, &count);
-	return (count);
+	return (count); */
 }
