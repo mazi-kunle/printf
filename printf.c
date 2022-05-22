@@ -19,6 +19,7 @@ int (*find_correct_func(const char *format))(va_list)
 		{"u", print_unsigned},
 		{"o", print_octal},
 		{"x", print_hex},
+		{"%", print_percent},
 		{"X", print_HEX},
 		{"R", print_rot13},
 		{"S", print_S},
