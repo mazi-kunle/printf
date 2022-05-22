@@ -6,7 +6,7 @@
 */
 int _printf(const char *format, ...)
 {
-	int count, i, temp;
+	int count;
 	va_list arg;
 	code_f func_list[] = {
 		{'c', print_char},
@@ -23,29 +23,10 @@ int _printf(const char *format, ...)
 		{'S', print_S},
 		{'\0', '\0'}
 	};
+
 	va_start(arg, format);
-	temp = 0;
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-			for (i = 0; func_list[i].sc; i++)
-			{
-				if (*format == func_list[i].sc)
-				{
-					temp = func_list[i].f(&arg);
-					count = count + temp;
-				}
-			}
-		}
-		else
-		{
-			_putchar(*format);
-			count++;
-		}
-		format++;
-	}
+	count = 0;
+	printf_helper(format, func_list, &count, &arg);
 	va_end(arg);
 	return (count);
 }

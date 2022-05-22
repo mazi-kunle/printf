@@ -37,4 +37,6 @@ typedef struct code_format
 	int (*f)(va_list *arg);
 } code_f;
 
+void printf_helper(const char *format, code_f func_list[], int *count, va_list *arg);
+
 #endif
