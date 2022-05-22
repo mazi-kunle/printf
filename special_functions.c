@@ -82,7 +82,7 @@ int print_octal(va_list *arg)
 
 /**
  * print_hex- a function.
- * @x: parameter.
+ * @arg: parameter.
  * Return: count.
 */
 
@@ -99,7 +99,7 @@ int print_hex(va_list *arg)
 
 /**
  * print_HEX- a function.
- * @X: paramter.
+ * @arg: paramter.
  * Return: int.
 */
 

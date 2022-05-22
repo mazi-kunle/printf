@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 		{'S', print_S},
 		{'\0', '\0'}
 	};
-
 	va_start(arg, format);
 	temp = 0;
 	while (*format)
@@ -34,18 +33,14 @@ int _printf(const char *format, ...)
 			while (func_list[i].sc != '\0')
 			{
 				if (*format == func_list[i].sc)
-				{
 					temp = func_list[i].f(&arg);
 					count = count + temp;
-				}
 				i++;
 			}
 		}
 		else
-		{
 			_putchar(*format);
 			count++;
-		}
 		format++;
 	}
 	va_end(arg);

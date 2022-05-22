@@ -15,7 +15,6 @@ int print_rev(va_list *arg);
 int print_octal(va_list *arg);
 int print_hex(va_list *arg);
 int print_HEX(va_list *arg);
-int (*find_correct_func(const char *format))(va_list)
 
 /*helper functions*/
 void print_base(unsigned int num, int base, int det, int *count);
