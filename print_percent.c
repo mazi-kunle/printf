@@ -6,7 +6,7 @@
  * Return:  count.
 */
 
-int print_percent(va_list *arg)
+int print_percent(__attribute__((unused))va_list *arg)
 {
 	_putchar('%');
 	return (1);

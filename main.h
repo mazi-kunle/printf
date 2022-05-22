@@ -13,11 +13,9 @@ int print_bin(va_list *arg);
 int print_S(va_list *arg);
 int print_rev(va_list *arg);
 int print_octal(va_list *arg);
-int print_HEXnhex(unsigned int n, unsigned int c);
-int print_hex(va_list x);
-int print_HEX(va_list X);
-int (*find_correct_func(const char *format))(va_list)
 int print_percent(va_list *arg);
+int print_hex(va_list *arg);
+int print_HEX(va_list *arg);
 
 /*helper functions*/
 void print_base(unsigned int num, int base, int det, int *count);
