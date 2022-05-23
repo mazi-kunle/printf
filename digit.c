@@ -34,6 +34,11 @@ int count_int(int n)
 		count = 1;
 		return (count);
 	}
+	if (n < 0)
+	{
+		count++;
+	}
+	n = -n;
 	while (n != 0)
 	{
 		n = n / 10;

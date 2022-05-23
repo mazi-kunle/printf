@@ -27,7 +27,7 @@ int main(void)
     _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf(NULL);
-    a =  _printf("%K\n");
+    a =  _printf("%d", -1024);
     _printf("%d\n", a);
     _printf("String:[%s]\n", "I am a string !");
     printf("String:[%s]\n", "I am a string !");
