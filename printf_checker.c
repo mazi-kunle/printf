@@ -12,7 +12,7 @@ void printf_helper(const char *format, code_f func_list[], int *count,
 		va_list *arg)
 {
 	int i, temp, flag;
-	
+
 	flag = 0;
 	while (*format)
 	{
