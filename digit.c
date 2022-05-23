@@ -4,7 +4,7 @@
  * @n: integer to be printed.
 */
 
-void print_dig(int n)
+void print_dig(long int n)
 {
 	if (n < 0)
 	{
