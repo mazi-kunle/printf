@@ -11,8 +11,9 @@
 void printf_helper(const char *format, code_f func_list[], int *count,
 		va_list *arg)
 {
-	int i, temp;
-
+	int i, temp, flag;
+	
+	flag = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -24,7 +25,13 @@ void printf_helper(const char *format, code_f func_list[], int *count,
 				{
 					temp = func_list[i].f(arg);
 					*count = *count + temp;
+					flag = 1;
 				}
+			}
+			if (flag == 0)
+			{
+				_putchar(*format);
+				*count = *count + 1;
 			}
 		}
 		else

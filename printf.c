@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * _printf- a function that produces output according to a format.
  * @format: parameter.
@@ -26,6 +27,10 @@ int _printf(const char *format, ...)
 
 	va_start(arg, format);
 	count = 0;
+	if (format == NULL || (format[0] == '%' && strlen(format) == 1))
+	{
+		return (0);
+	}
 	printf_helper(format, func_list, &count, &arg);
 	va_end(arg);
 	return (count);
