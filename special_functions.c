@@ -15,6 +15,7 @@ int print_S(va_list *arg)
 	char *s;
 
 	s = va_arg(*arg, char *);
+	count = 0;
 
 	for (i = 0; s[i]; i++)
 	{
