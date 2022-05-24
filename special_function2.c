@@ -95,6 +95,6 @@ int print_bin(va_list *arg)
 		count++;
 		i = i * 10;
 	}
-	print_dig(bin);
+	print_bin(bin);
 	return (count);
 }
