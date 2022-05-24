@@ -25,6 +25,7 @@ int _putchar(char c);
 int count_int(int digit);
 void print_unsined(unsigned int n, int *count);
 void print_str(char *s);
+void print_b(unsigned long int n);
 
 /**
  * struct code_format - structure format

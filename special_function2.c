@@ -81,11 +81,22 @@ int print_unsigned(va_list *arg)
 int print_bin(va_list *arg)
 {
 	unsigned int n;
-	int count;
-	char s[50];
+	int count, i, rem;
+	unsigned long int bin;
 
 	n = va_arg(*arg, unsigned int);
-	itoa(n, s, 2);
-	count = strlen(s);
+	bin = 0;
+	i = 1;
+	count = 0;
+
+	while (n != 0)
+	{
+		rem = n % 2;
+		n = n / 2;
+		bin = bin + (rem * i);
+		count++;
+		i = i * 10;
+	}
+	print_b(bin);
 	return (count);
 }
