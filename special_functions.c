@@ -64,7 +64,7 @@ int print_rev(va_list *arg)
 		}
 		_putchar('\0');
 	}
-	return (count);
+	return (count - 1);
 }
 
 /**
