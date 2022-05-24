@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <string.h>
 /**
  * print_char- function.
  * @arg: parameter.
@@ -80,23 +78,19 @@ int print_unsigned(va_list *arg)
 
 int print_bin(va_list *arg)
 {
-	unsigned int n;
-	int count, i, rem;
-	unsigned long int bin;
+	int n, a[50], i, count;
 
 	n = va_arg(*arg, unsigned int);
-	bin = 0;
-	i = 1;
 	count = 0;
-
-	while (n != 0)
+	for (i = 0; n > 0; i++)
 	{
-		rem = n % 2;
+		a[i] = n % 2;
 		n = n / 2;
-		bin = bin + (rem * i);
 		count++;
-		i = i * 10;
 	}
-	print_b(bin);
+	for (i = i - 1; i >= 0; i--)
+	{
+		_putchar(a[i] + '0');
+	}
 	return (count);
 }

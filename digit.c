@@ -63,17 +63,3 @@ void print_unsined(unsigned int n, int *count)
 	}
 	_putchar(n % 10 + '0');
 }
-
-/**
- * print_b- a function.
- * @n: parameter.
-*/
-
-void print_b(unsigned long int n)
-{
-	if (n / 10)
-	{
-		print_b(n / 10);
-	}
-	_putchar(n % 10 + '0');
-}

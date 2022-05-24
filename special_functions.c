@@ -77,6 +77,12 @@ int print_octal(va_list *arg)
 	int count;
 
 	d = va_arg(*arg, unsigned int);
+	if (d == 0)
+	{
+		_putchar(d + '0');
+		count = 1;
+		return (count);
+	}
 	count = 0;
 	print_base(d, 8, 2, &count);
 	return (count);
@@ -94,6 +100,12 @@ int print_hex(va_list *arg)
 	int count;
 
 	d = va_arg(*arg, unsigned int);
+	if (d == 0)
+	{
+		_putchar(d + '0');
+		count = 1;
+		return (count);
+	}
 	count = 0;
 	print_base(d, 16, 1, &count);
 	return (count);
@@ -111,6 +123,12 @@ int print_HEX(va_list *arg)
 	int count;
 
 	d = va_arg(*arg, unsigned int);
+	if (d == 0)
+	{
+		_putchar(d + '0');
+		count = 1;
+		return (count);
+	}
 	count = 0;
 	print_base(d, 16, 0, &count);
 	return (count);
